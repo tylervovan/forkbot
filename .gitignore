@@ -1,0 +1,75 @@
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+env/
+ENV/
+
+# Node / Foxglove extension
+node_modules/
+dist/
+*.foxe
+.foxeignore
+
+# Vendor / nested repos (kept in their own upstream/origin)
+src/realsense-ros/
+Speedrun-Firmware/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs / runtime
+*.log
+*.pid
+core.*
+
+# Large binaries / recordings
+*.bag
+*.mcap
+*.db3
+*.rrd
+*.mp4
+*.mov
+*.zip
+*.tar.gz
+
+# Secrets — defensive, repo should never contain these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.token
+credentials.json
+secrets.json
+tailscale-authkey*
+
+# Arduino build caches
+*.hex
+*.elf
+build-*/
+
+# Misc
+*.bak
+*.orig
+*.rej

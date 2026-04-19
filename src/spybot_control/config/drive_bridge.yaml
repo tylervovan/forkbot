@@ -1,0 +1,23 @@
+drive_bridge:
+  ros__parameters:
+    # USB-serial path to the Arduino (Uno R3 -> ttyACM*).
+    serial_port: /dev/ttyACM0
+    baud_rate: 9600
+
+    # Must be shorter than the Arduino's DEADBAND_TIMEOUT_MS (500 ms in
+    # drive.ino). The node resends the last DRIVE command at this rate to keep
+    # the firmware watchdog happy.
+    heartbeat_hz: 20.0
+    watchdog_ms: 500
+
+    # Twist -> PWM mapping. /cmd_drive publishers are expected to send
+    # Twist.linear.x and Twist.angular.z in [-1.0, 1.0]; drive_bridge scales
+    # to [-max_pwm, max_pwm] and arcade-mixes into left/right before writing
+    # DRIVE <l> <r> over serial.
+    max_pwm: 255
+    linear_scale: 255.0
+    angular_scale: 255.0
+
+    # Seconds to wait after opening the serial port before sending any byte.
+    # The Uno bootloader runs for ~1.5 s after a DTR-triggered auto-reset.
+    boot_sleep_sec: 2.0
