@@ -73,3 +73,6 @@ build-*/
 *.bak
 *.orig
 *.rej
+
+# Docs (kept local only)
+docs/

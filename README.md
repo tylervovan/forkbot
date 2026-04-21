@@ -40,10 +40,6 @@ src/
   spybot_perception/       ROS 2 package — RealSense capture + YOLO detection + overlay
   realsense-ros/           Vendor package (upstream Intel)
 spybot-foxglove-extension/ Foxglove extension — Manual Engage panel (joystick + screw + E-STOP)
-docs/
-  specs/                   Hardware/software spec sheets + pivot decision log
-  foxglove/                operator-layout.json for Foxglove Studio
-  submission/              Devpost copy, pitch script, track picks, source-of-truth
 Speedrun-Firmware/         (Future) ESP32-S3 Zephyr arm controller — not shipped for hackathon
 ```
 
@@ -77,13 +73,11 @@ npm install
 npm run local-install   # installs into Foxglove Desktop
 ```
 
-Open Foxglove, load `docs/foxglove/operator-layout.json`, point it at `ws://<bot-tailscale-hostname>:8765`.
+Open Foxglove, load the operator layout JSON, point it at `ws://<bot-tailscale-hostname>:8765`.
 
 ### 4. Bench verification
 
-```bash
-bash docs/specs/t2-bench-checklist.md   # walk it top-to-bottom before demo
-```
+Walk the bench checklist top-to-bottom before demo.
 
 ## Safety
 
@@ -98,7 +92,7 @@ bash docs/specs/t2-bench-checklist.md   # walk it top-to-bottom before demo
 | --- | --- |
 | Intel RealSense D435i | RGB + depth + IMU |
 | Arduino Uno R3 | Drive + screw MCU, serial protocol |
-| L298N H-bridge | With heatsink — mandatory, see `docs/specs/l298n-h-bridge.md` |
+| L298N H-bridge | With heatsink — mandatory |
 | REV HD Hex motor ×2 | Drive wheels |
 | Lead-screw arm | Straight-line plug insertion |
 | FlySky FS-i6X + FS-iA6B | RC override |
@@ -106,15 +100,11 @@ bash docs/specs/t2-bench-checklist.md   # walk it top-to-bottom before demo
 
 ## The pivot (2026-04-18)
 
-Our Jetson Orin Nano bricked at T-18 hours. We moved the entire perception + planning stack to the operator laptop, kept the Arduino drive + RealSense camera, and shipped. Isaac ROS is out; librealsense + ONNX is in. Clean interfaces made this possible — details in `docs/specs/README.md`.
+Our Jetson Orin Nano bricked at T-18 hours. We moved the entire perception + planning stack to the operator laptop, kept the Arduino drive + RealSense camera, and shipped. Isaac ROS is out; librealsense + ONNX is in. Clean interfaces made this possible.
 
 ## License
 
 {{TBD — MIT recommended for hackathon submission.}}
-
-## Team
-
-See `docs/submission/facts.md`.
 
 ## Submitted to
 
